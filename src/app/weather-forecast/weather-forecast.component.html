@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">5-day forecast for {{forecast.city.name}}</h3>
+
+        </div>
+
+        <ul class="list-group">
+            <!---->
+            <li class="list-group-item" *ngFor="let data of forecast.list">
+                
+                <!-- {{parseDate(data.dt) | date:'fullDate'}} :
+                {{data.weather[0].main}}
+                - Min: {{data.main.temp_min | temperature:"F"}}
+                - Max: {{data.main.temp_max | temperature:"F"}} -->
+                {{parseDate(data.dt) | date:'fullDate' }} : {{data.weather[0].main}} - Min: {{data.temp.min | temperature:"F"}}
+                - Min: {{data.temp.max | temperature:"F"}}
+
+                <img class="icon" [src]="images[data.weather[0].main]">
+            </li>
+        </ul>
+    </div>
+    <button class="btn btn-success" tabindex="0" id="mainPageBtn" (click)="goback()">&lt; Back to main page</button>
+</div>

@@ -1,0 +1,5 @@
+<h1>Welcome to weather app</h1>
+
+<app-add-zipcode (zipcodeListener)="zipListener($event)"></app-add-zipcode>
+
+<app-weather-card *ngFor="let loc of locations; index as idx" [zip]="loc.zipCode" [index]="idx" [delete]="deleteZip"></app-weather-card>
