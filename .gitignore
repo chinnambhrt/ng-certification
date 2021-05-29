@@ -46,3 +46,4 @@ Thumbs.db
 
 # node package lock
 package-lock.json
+.browserlistrc
