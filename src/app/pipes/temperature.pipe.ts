@@ -11,7 +11,7 @@ export class TemperaturePipe implements PipeTransform {
 
     switch(units){
       case "F":{
-        result = `${Math.trunc((value-273.15)*(9/5)+32)} ${units}`;
+        result = `${Math.trunc((value-273.15)*(9/5)+32)}\u00B0${units}`;
         break;
       }
       case "C":{
