@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
@@ -6,13 +7,7 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  title = 'ng-certification';
-}
-
-
-export class Location{
-  zipCode?: number;
-  constructor(zip: number){
-    this.zipCode = zip;
+  constructor(private titleService: Title){
+    this.titleService.setTitle('Weather App');
   }
 }

@@ -19,20 +19,11 @@ export class HomeComponent implements OnInit {
     this.updateLocations();
   }
 
-  zipListener(location: ZipLocation){
-    this.updateLocations();
-  }
-
   updateLocations(){
     this.locations = this.storage.getLocations();
   }
 
-  deleteZip(index: string){
-    this.storage.removeLocation(index);  
-  }
-
-  addZipLocation(){
-    
+  addZipLocation(){ 
     if(5==this.zipCode?.length){
       this.storage.addLocation(this.zipCode);
       this.zipCode = "";

@@ -12,8 +12,6 @@ import { WeatherService } from '../services/weather.service';
 export class WeatherCardComponent implements OnInit {
 
   @Input("zip") zipCode?: any;
-  @Input("index") index: number = -1;
-  @Input("delete") delete?: any;
   weather?: any = { weather: [{ main: "" }], main: "" };
   imageSrc?: string;
 

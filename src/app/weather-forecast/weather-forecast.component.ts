@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { WeatherService } from '../services/weather.service';
 
@@ -16,8 +17,9 @@ export class WeatherForecastComponent implements OnInit {
   constructor(
     private weatherService: WeatherService,
     private route: ActivatedRoute,
-    private router: Router
-  ) { }
+    private router: Router,
+    private titleService: Title
+  ) {}
 
   ngOnInit(): void {
 
@@ -25,9 +27,12 @@ export class WeatherForecastComponent implements OnInit {
 
     let zip = this.route.snapshot.paramMap.get('zip')
 
+    this.titleService.setTitle(`5-Day Forecast - ${zip}`);
+
     this.weatherService.getWeatherForecast(zip).subscribe(response=>{
         this.forecast = response;
     });
+  
 
   }
 
