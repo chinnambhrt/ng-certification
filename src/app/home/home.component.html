@@ -1,5 +1,12 @@
 <h1>Welcome to weather app</h1>
 
-<app-add-zipcode (zipcodeListener)="zipListener($event)"></app-add-zipcode>
+<div class="well">
+    <h2>Enter a zipcode:</h2>
+    <input class="form-control" placeholder="Zipcode" [(ngModel)]="zipCode" type="text" maxlength="5" (keypress)="onkeypress($event)" id="addLocation">
+    <br>
+    <button class="btn btn-primary" id="addLocationBtn" (click)="addZipLocation()">
+        Add location
+    </button> 
+</div>
 
-<app-weather-card *ngFor="let loc of locations; index as idx" [zip]="loc.zipCode" [index]="idx" [delete]="deleteZip"></app-weather-card>
+<app-weather-card *ngFor="let zip of locations; index as idx" [zip]="zip" [index]="idx" [delete]="deleteZip"></app-weather-card>

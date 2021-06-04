@@ -10,7 +10,8 @@ import { ZipLocation } from '../zip-location.model';
 })
 export class HomeComponent implements OnInit {
 
-  locations?: ZipLocation[];
+  locations?: string[];
+  zipCode?: string = "";
 
   constructor(private storage: StorageService) { }
 
@@ -26,8 +27,25 @@ export class HomeComponent implements OnInit {
     this.locations = this.storage.getLocations();
   }
 
-  deleteZip(index: number){
+  deleteZip(index: string){
     this.storage.removeLocation(index);  
+  }
+
+  addZipLocation(){
+    
+    if(5==this.zipCode?.length){
+      this.storage.addLocation(this.zipCode);
+      this.zipCode = "";
+    }
+  }
+
+  onkeypress(event: any){
+    const code = event.keyCode;
+    if(code>=48 && code<=57){
+      return true;
+    }
+    event.preventDefault();
+    return false;
   }
 
 }

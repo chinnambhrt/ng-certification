@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { ZipLocation } from '../zip-location.model';
 import { APP_ID } from '../app.module'
 
 @Injectable({
@@ -7,7 +6,7 @@ import { APP_ID } from '../app.module'
 })
 export class StorageService {
 
-  locations: ZipLocation[] = [];
+  locations: string[] = [];
 
   constructor() {
     
@@ -19,20 +18,23 @@ export class StorageService {
 
   }
 
-  addLocation(loc: ZipLocation) {
-    
-    if(location!=null){
+  addLocation(loc: string) {
+    if(location!=null && !this.hasLocation(loc)){
       this.locations.push(loc);
       this.saveLocationData();
     }
-
   }
 
-  getLocations(): any{
+  getLocations(): string[]{
     return this.locations;
   }
 
-  removeLocation(index: number): boolean{
+  hasLocation(zip: string){
+    return this.locations.indexOf(zip)>-1;
+  }
+
+  removeLocation(zip: string): boolean{
+    const index = this.locations.indexOf(zip);
     const success =  (this.locations.splice(index,1)!=null);
     if(success) this.saveLocationData();
     return success;
