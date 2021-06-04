@@ -10,7 +10,7 @@ import { WeatherService } from '../services/weather.service';
 })
 export class WeatherCardComponent implements OnInit {
 
-  @Input("zip") zipCode?:number;
+  @Input("zip") zipCode?: any;
   @Input("index") index: number = -1;
   @Input("delete") delete?: any;
   weather?: any = {weather:[{main: ""}],main: ""};
@@ -26,8 +26,16 @@ export class WeatherCardComponent implements OnInit {
       this.weather = response;
       let env: string = this.weather.weather[0].main;
       this.imageSrc = this.weatherService.getImageSources()[env];
+    },err=>{
+      if(404==err.status){
+        this.deleteZip();
+      }
     });
 
+  }
+
+  deleteZip(){
+    this.storage.removeLocation(this.zipCode);
   }
 
 }

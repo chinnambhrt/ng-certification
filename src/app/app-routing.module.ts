@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { IsInStorageGuard } from './guards/is-in-storage.guard';
 import { HomeComponent } from './home/home.component';
 import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
 
@@ -12,7 +13,8 @@ const routes: Routes = [
   {
     path:'forecast/:zip',
     component: WeatherForecastComponent,
-    pathMatch: 'full'
+    pathMatch: 'full',
+    canActivate: [IsInStorageGuard]
   }
 ];
 

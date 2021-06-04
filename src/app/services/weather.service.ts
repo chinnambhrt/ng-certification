@@ -10,6 +10,7 @@ export class WeatherService {
     "Clear":"https://www.angulartraining.com/images/weather/sun.png",
     "Rain":"https://www.angulartraining.com/images/weather/rain.png",
     "Clouds":"https://www.angulartraining.com/images/weather/clouds.png",
+    "Mist":"https://www.angulartraining.com/images/weather/clouds.png",
     "Snow":"https://www.angulartraining.com/images/weather/snow.png",
   }
 
