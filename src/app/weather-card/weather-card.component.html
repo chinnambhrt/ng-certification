@@ -10,7 +10,7 @@
                 - Min: <b>{{weather.main.temp_min | temperature:"F"}}</b>
             </p>
             <p>
-                <a href="/forecast/{{zipCode}}">Show 5-day forecast for {{weather.name}}</a>
+                <a class="link" (click)="showForecast()">Show 5-day forecast for {{weather.name}}</a>
             </p>
         </div>
         <div>

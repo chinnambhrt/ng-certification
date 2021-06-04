@@ -20,3 +20,7 @@ body {
     right: 20px;
     top: -2px;
 }
+
+.link{
+  cursor: pointer;
+}
