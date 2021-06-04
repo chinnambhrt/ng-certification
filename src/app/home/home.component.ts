@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { StorageService } from '../services/storage.service';
 import { ZipLocation } from '../zip-location.model';
 
@@ -13,9 +14,12 @@ export class HomeComponent implements OnInit {
   locations?: string[];
   zipCode?: string = "";
 
-  constructor(private storage: StorageService) { }
+  constructor(private storage: StorageService, 
+    private titleService: Title
+    ) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle("Weather App.");
     this.updateLocations();
   }
 
